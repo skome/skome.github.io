@@ -56,11 +56,11 @@ var x = d3.time.scale() /// D3 has multiple scales (I will discuss scales later 
 
 var y = d3.scale.linear() /// This is a linear scale. This scale is used to draw the y-axis. 
     .domain([0, d3.max(data, function(d) { return d.total;})]) /// Similarly to the time scale,this scale has a domain as well. 
-	 .range([height, 0]);
+    ///.range([height, 0]);
 	 ///.domain(d3.extent(data, function(d) { return d.close; })); 
     ///The domain start at 0 and continues to the largest number in JSON array. d3.max is a function in D3 that allows to determine the largest number in the array.
     //// function(d) { return d.total;} -- this function extracts all values with the key total from the data.
-    ///.range([height - margin.top - margin.bottom, 0]); /// this scale has a range, not a rangeBound. The range extends from the max height to 0
+    .range([height - margin.top - margin.bottom, 0]); /// this scale has a range, not a rangeBound. The range extends from the max height to 0
 
 var xAxis = d3.svg.axis() /// Specification for xAxis
     .scale(x) // link to x scale
